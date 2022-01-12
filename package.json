@@ -2,6 +2,9 @@
   "name": "typescript-bot",
   "version": "1.0.0",
   "exports": "./index.ts",
+  "engines": {
+    "node": "^17"
+  },
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc",
