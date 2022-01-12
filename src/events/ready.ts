@@ -1,5 +1,7 @@
 import { Event } from "../structures/Event";
+import board from "../index";
 
 export default new Event("ready", () => {
-    console.log("Bot is online");
+  console.log("Dribbbling...");
+  board.user.setStatus("dnd");
 });

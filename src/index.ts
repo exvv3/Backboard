@@ -1,6 +1,7 @@
 require("dotenv").config();
-import { ExtendedClient } from "./structures/Client";
+import { Board } from "./structures/Client";
 
-export const client = new ExtendedClient();
+const board = new Board();
+export default board;
 
-client.start();
+board.start();
