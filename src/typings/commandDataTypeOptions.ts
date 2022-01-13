@@ -23,15 +23,16 @@ export interface ExtendedInteraction extends CommandInteraction {
 
 interface RunOptions {
   board: Board;
-  message?: Message;
+  message: Message;
   args?: CommandInteractionOptionResolver;
+  channel?: Message["channel"];
 }
 
-type RunFunction = (options: RunOptions) => any;
+type CallbackFunc = (options: RunOptions) => any;
 
 export type CommandType = {
   userPermissions?: PermissionResolvable[];
   description?: string;
   aliases?: string[];
-  run: RunFunction;
+  callback: CallbackFunc;
 } & ChatInputApplicationCommandData;

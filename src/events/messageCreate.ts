@@ -17,8 +17,12 @@ export default new Event("messageCreate", (message) => {
   const cmd = args.join(" ");
   if (!cmd) return;
   const command = board.commands.get(cmd) || board.aliases.get(cmd);
-  if (!command) return message.channel.send("This command doesn't exist!");
-  command.run({
+  if (!command)
+    return message.channel.send(
+      "This command doesn't exist, though, if you have a feature suggestion hit us up!"
+    );
+  command.callback({
+    args: args ,
     board,
     message: message,
   });

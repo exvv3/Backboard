@@ -1,7 +1,7 @@
 import { CommandInteractionOptionResolver } from "discord.js";
 import board from "../index";
 import { Event } from "../structures/Event";
-import { ExtendedInteraction } from "../typings/Command";
+import { ExtendedInteraction } from "../typings/commandDataTypeOptions";
 
 export default new Event("interactionCreate", async (interaction) => {
   // Chat Input Commands
@@ -11,9 +11,9 @@ export default new Event("interactionCreate", async (interaction) => {
     if (!command)
       return interaction.followUp("You have used a non existent command");
 
-    command.run({
+    command.callback({
       board,
-      args: interaction.options as CommandInteractionOptionResolver,
+      interactionArgs: interaction.options as CommandInteractionOptionResolver,
     });
   }
 });
