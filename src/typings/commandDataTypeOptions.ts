@@ -23,9 +23,10 @@ export interface ExtendedInteraction extends CommandInteraction {
 
 interface RunOptions {
   board: Board;
-  message: Message;
-  args?: CommandInteractionOptionResolver;
+  message?: Message;
+  interactionArgs?: CommandInteractionOptionResolver;
   channel?: Message["channel"];
+  args?: string[]
 }
 
 type CallbackFunc = (options: RunOptions) => any;

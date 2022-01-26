@@ -8,7 +8,7 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc",
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev": "./node_modules/nodemon/bin/nodemon.js",
     "postbuild": " ./node_modules/nodemon/bin/nodemon.js --quiet dotenv/config dist/src/index.js"
   },
   "keywords": [],

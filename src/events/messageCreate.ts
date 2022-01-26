@@ -9,12 +9,11 @@ export default new Event("messageCreate", (message) => {
   )
     return;
 
-  const args = message.content
-    .slice(board.config.prefix.length)
+  const args = message.content.substring(board.config.prefix.length)
     .trim()
-    .split(/ +/g);
+    .split(/ +/);
 
-  const cmd = args.join(" ");
+  const cmd = args.shift().toLowerCase()
   if (!cmd) return;
   const command = board.commands.get(cmd) || board.aliases.get(cmd);
   if (!command)
@@ -22,7 +21,7 @@ export default new Event("messageCreate", (message) => {
       "This command doesn't exist, though, if you have a feature suggestion hit us up!"
     );
   command.callback({
-    args: args ,
+    args: args,
     board,
     message: message,
   });

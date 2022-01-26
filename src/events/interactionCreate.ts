@@ -13,7 +13,7 @@ export default new Event("interactionCreate", async (interaction) => {
 
     command.callback({
       board,
-      interactionArgs: interaction.options as CommandInteractionOptionResolver,
+      interactionArgs: interaction.options as CommandInteractionOptionResolver
     });
   }
 });

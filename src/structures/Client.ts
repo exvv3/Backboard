@@ -5,7 +5,7 @@ import {
   Collection,
   Intents,
 } from "discord.js";
-import { CommandType } from "../typings/Command";
+import { CommandType } from "../typings/commandDataTypeOptions";
 import glob from "glob";
 import { promisify } from "util";
 import { RegisterCommandsOptions } from "../typings/clientCommandOptions";
@@ -19,6 +19,7 @@ const globPromise = promisify(glob);
 export class Board extends Client {
   public commands: Collection<string, CommandType> = new Collection();
   public aliases: Collection<string, CommandType> = new Collection();
+  public dribbbleUsernames: Collection<any, any> = new Collection();
   public config: Config = conf;
 
   constructor() {
@@ -48,7 +49,7 @@ export class Board extends Client {
     let completed = 0;
     const slashCommands: ApplicationCommandDataResolvable[] = [];
     const commandFiles = await globPromise(
-      `${__dirname}/../commands/*{.ts,.js}`
+      `${__dirname}/../commands/*/*{.ts,.js}`
     );
     commandFiles.forEach(async (filePath) => {
       const command: CommandType = await this.importFile(filePath);
