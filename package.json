@@ -8,8 +8,7 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc",
-    "dev": "yarn build & node dist/index.js",
-    "postbuild": " ./node_modules/nodemon/bin/nodemon.js --quiet dotenv/config dist/src/index.js"
+    "dev": "yarn build & node dist/index.js"
   },
   "keywords": [],
   "author": "",
