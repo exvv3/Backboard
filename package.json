@@ -6,7 +6,7 @@
     "node": "16.13.0"
   },
   "scripts": {
-    "prebuild": "yarn add tsc & rm -rf dist",
+    "prebuild": "rm -rf dist",
     "build": "tsc",
     "dev": "yarn build & node dist/index.js"
     "postbuild": "node app/dist/src/index.js"
