@@ -8,7 +8,7 @@
   "scripts": {
     "prebuild": "yarn add tsc & rm -rf dist",
     "build": "tsc",
-    "dev": "yarn build & node dist/index.js"
+    "dev": "yarn build & node dist/index.js",
     "postbuild": "node app/dist/src/index.js"
   },
   "keywords": [],
